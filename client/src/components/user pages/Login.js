@@ -24,7 +24,7 @@ const Login = (props) => {
                 [e.target.name]: e.target.value
             })
         }
-    console.log(result)
+    
     return ( 
         
         <div className = 'container'>

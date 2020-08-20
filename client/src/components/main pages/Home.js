@@ -1,26 +1,20 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserProfile } from '../../actions/userActions'
+import React from 'react';
+import { FaCode } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 const Home = (props) => {
-const dispatch = useDispatch()
-const { user , loading, error } = useSelector(state => state.userProfile)
 
-useEffect( () => {
-    dispatch(getUserProfile())
-}, [dispatch])
-
-// Status checking / Error guarding
-if(loading) return "Loading"
-if(error) return "Error Data Request: " + error
-if(!user) return "Loading"
-
+    const {userData} = useSelector(state => state.userAuth)
+    if(userData && !userData.isAuth) return <div></div>
+    
 return ( 
-    <div>
-        HOME PAGE
-        <br/>
-        {user.name}
-    </div>
+    <>
+        <div className="app">
+            <FaCode style={{ fontSize: '4rem' }} /><br />
+            <span style={{ fontSize: '2rem' }}>Let's Start Coding!</span>
+        </div>
+    
+    </>
 );
 }
 

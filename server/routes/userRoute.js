@@ -42,6 +42,14 @@ router.post('/api/users/login', async(req, res) => {
         res.status(400).send(e.message)
     }
 })
+// AUTH USER
+router.get('/api/users/auth', auth, (req, res) => {
+    res.send({
+        isAuth: true,
+        isAdmin: Boolean(req.user.role),
+        user: req.user
+    })
+})
 // LOGOUT USER
 router.get('/api/users/logout', auth, async(req, res) => {
     try{

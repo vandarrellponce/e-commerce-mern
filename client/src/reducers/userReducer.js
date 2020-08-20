@@ -45,6 +45,16 @@ export const userRegisterReducer = (state = initState, action) => {
     }
 }
 
+export const userAuthReducer= (state = {}, action) => {
+    switch(action.type){
+        case 'AUTH_USER':
+            return {
+                userData: action.payload
+            }
+        default: return state
+    }
+}
+
 export const userProfileReducer = (state = {test: 'userReducer init state'}, action) => {
     switch(action.type){
         case 'GET_USER_PROFILE':
