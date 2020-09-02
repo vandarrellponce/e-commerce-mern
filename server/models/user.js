@@ -45,10 +45,26 @@ const userSchema = mongoose.Schema({
             type:String
         }
     }],
+    cart: {
+        type: Array,
+        default: []
+    },
+    history:{
+        type: Array,
+        default: []
+    },
     token:{ type: String },
     tokenExp:{ type: Number },
     avatar:{ type:Buffer }
 })
+
+// SET UP VIRTUAL PROPERTY FOR USER
+userSchema.virtual('payments', {
+    ref: 'Payment',
+    localField:'_id',
+    foreignField:'user'
+})
+
 // ADDING SCHEMA MIDDLEWARES
 userSchema.pre('save', async function(next){
     const user = this

@@ -46,7 +46,44 @@ export const authUser = () => {
    
 }
 
-export const getUserProfile = () => {
+export const addToCart = (productId) => {
+    return async(dispatch) => {
+        try{
+            const res = await axios.post('/api/users/cart', {productId})
+            return dispatch({
+                type: 'ADD_TO_CART_SUCCESS',
+                payload: res.data
+            })
+        }
+        catch(e){
+            return dispatch({
+                type:'ADD_TO_CART_ERROR',
+                payload: e.response
+            })
+        }
+    }
+}
+
+export const getCart = () => {
+    return async(dispatch) => {
+        try{
+            const res = await axios.get('/api/users/cart')
+            return dispatch({
+                type: 'GET_CART_SUCCESS',
+                payload: res.data
+            })
+        }
+        catch(e){
+            return dispatch({
+                type:'GET_CART_ERROR',
+                payload: e.response
+            })
+        }
+    }
+}
+
+
+/* export const getUserProfile = () => {
     return async(dispatch) => {
         try {
             dispatch({type: 'GET_USER_PROFILE'})
@@ -58,4 +95,4 @@ export const getUserProfile = () => {
             
         }
     }
-}
+} */

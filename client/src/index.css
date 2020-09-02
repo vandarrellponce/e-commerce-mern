@@ -1,16 +1,17 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
 
 .app {
   flex-direction: column;
@@ -34,4 +35,50 @@ code {
   .myContainer {
     width: 80%;
   }
+}
+
+.home-info{
+    display: flex; 
+    height: 300px; 
+    justify-content:center; 
+    align-items:center;
+}
+.home-title{
+    text-align: center;
+}
+.home-button{
+    display: flex;
+    justify-content: center;
+}
+
+.image-slider{
+    width: 100%;
+    max-height: 100%;
+}
+
+.search-feature{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem auto;
+}
+
+.product-detail{
+    width: 100%;
+    padding: 3rem, 4rem;
+}
+
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+    border: 1px solid #cac8c8;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #eeeeee;
 }

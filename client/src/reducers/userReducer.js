@@ -51,6 +51,29 @@ export const userAuthReducer= (state = {}, action) => {
             return {
                 userData: action.payload
             }
+
+        default: return state
+    }
+}
+
+export const userCartReducer = (state = {}, action) => {
+    switch(action.type){
+        case 'ADD_TO_CART_SUCCESS':
+            return {
+               cart: action.payload
+            }
+        case 'ADD_TO_CART_ERROR':
+            return{
+                error: action.payload
+            }
+        case 'GET_CART_SUCCESS':
+            return {
+                cart: action.payload
+            }
+        case 'GET_CART_ERROR':
+            return{
+                error: action.payload
+            }
         default: return state
     }
 }

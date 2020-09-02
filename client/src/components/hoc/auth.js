@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
-import { authUser } from '../../actions/userActions';
+import { authUser, getCart } from '../../actions/userActions';
 
 const authWrapper = (Component, option, adminRoute) => {
 
@@ -14,6 +14,7 @@ const authWrapper = (Component, option, adminRoute) => {
             const check = async() => {
                 
                 try{
+                    dispatch(getCart())
                     const response = await dispatch(authUser())
                     
                     // IF NOT AUTHENTICATED

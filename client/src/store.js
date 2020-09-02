@@ -1,4 +1,5 @@
-import { userLoginReducer, userProfileReducer, userRegisterReducer, userAuthReducer } from "./reducers/userReducer";
+import { userLoginReducer, userRegisterReducer, userAuthReducer, userCartReducer } from "./reducers/userReducer";
+import { productUploadReducer } from "./reducers/productReducer";
 
 
 const { createStore, combineReducers, compose, applyMiddleware } = require("redux");
@@ -7,10 +8,12 @@ const { default: thunk } = require("redux-thunk");
 const initState = {}
 
 const rootReducer = combineReducers({
-    userProfile: userProfileReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
-    userAuth: userAuthReducer
+    userAuth: userAuthReducer,
+    productUpload: productUploadReducer,
+    userCart: userCartReducer
+
 })
 
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

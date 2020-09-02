@@ -2,8 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const userRouter = require('./routes/userRoute')
+const productRouter = require('./routes/productRoutes')
 const key = require('./config/key')
-const cors = require('cors')
+
 
 // Database Connection
 mongoose.connect(key.mongoURI, {
@@ -24,6 +25,7 @@ app.use(cookieParser())
 
 // App Routes
 app.use(userRouter)
+app.use(productRouter)
 app.get('/api/test', (req, res) => {
     res.send('Test message from the server')
 })
